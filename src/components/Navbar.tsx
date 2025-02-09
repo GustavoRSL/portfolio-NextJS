@@ -1,25 +1,30 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
-  const sections: string[] = ["home", "sobre", "projetos", "contato"];
+  const sections = useMemo(() => ["home", "sobre", "projetos", "contato"], []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      sections.forEach((id) => {
-        const section = document.getElementById(id);
-        if (section && window.scrollY >= section.offsetTop - 60) {
-            setActiveSection(id);
-        }
-      });
-      setActiveSection(activeSection);
-    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    sections.forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, [sections]);
 
   return (
     <nav className="fixed top-0 left-1/2 transform -translate-x-1/2 w-[80%] bg-gray-900 text-white py-4 rounded-xl border border-gray-100 bg-opacity-30 backdrop-filter backdrop-blur-lg z-10 mt-4">
@@ -28,7 +33,7 @@ export default function Navbar() {
           <li key={section}>
             <a
               href={`#${section}`}
-              className={`${
+              className={`block py-2 ${
                 activeSection === section ? "text-yellow-400 font-bold" : ""
               } transition-all`}
             >
