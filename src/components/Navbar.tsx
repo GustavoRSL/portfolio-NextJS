@@ -34,7 +34,7 @@ export default function Navbar() {
             <a
               href={`#${section}`}
               className={`block py-2 ${
-                activeSection === section ? "text-yellow-400 font-bold" : ""
+                activeSection === section ? "text-secondaryColor font-bold" : ""
               } transition-all`}
             >
               {section.charAt(0).toUpperCase() + section.slice(1)}

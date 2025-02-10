@@ -13,6 +13,7 @@ export default {
         foreground: "var(--foreground)",
         primaryColor: "var(--primary-color)",
         secondaryColor: "var(--secondary-color)",
+        paragrahpColor: "var(--color-paragraph)",
       },
     },
   },

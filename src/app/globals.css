@@ -4,9 +4,10 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #020617;
   --primary-color: #3a0ca3;
-  --secondary-color: #363d7bd0;
+  --secondary-color: #8090ff;
+  --color-paragraph: #bdc5d1;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,7 +30,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(180deg, #000000 70%, #3a0ca3 100%);
+  background: linear-gradient(180deg, #020617 70%, #3a0ca3 100%);
   filter: blur(100px);
   z-index: -1;
 }
