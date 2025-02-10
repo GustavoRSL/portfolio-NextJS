@@ -24,8 +24,8 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
-          echo "VERCEL_ORG_ID: $VERCEL_ORG_ID",
-          echo "VERCEL_PROJECT_ID: $VERCEL_PROJECT_ID"
+          if [ -z "$VERCEL_ORG_ID" ]; then echo "VERCEL_ORG_ID está vazio!"; else echo "VERCEL_ORG_ID OK"; fi
+          if [ -z "$VERCEL_PROJECT_ID" ]; then echo "VERCEL_PROJECT_ID está vazio!"; else echo "VERCEL_PROJECT_ID OK"; fi
           vercel pull --yes --environment=production --token ${{ secrets.VERCEL_TOKEN }}
         
       - name: Build Project
