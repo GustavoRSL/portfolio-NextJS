@@ -1,5 +1,3 @@
-// components/TechnologyItem.tsx
-
 import { DiAngularSimple, DiNodejsSmall, DiReact, DiMongodb } from "react-icons/di";
 import { SiTypescript } from "react-icons/si";
 
@@ -28,7 +26,7 @@ const TechnologyItem = (props: TechnologyItemProps) => {
   return (
     <div className="flex items-center gap-2">
       {getIcon(props.name)}
-      <p className="text-lg text-paragrahpColor text-center">{props.name}</p>
+      <p className="text-paragrahpColor text-center text-base sm:text-base lg:text-2xl">{props.name}</p>
     </div>
   );
 };
