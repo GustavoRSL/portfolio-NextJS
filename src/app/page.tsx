@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HomeSection from "@/components/HomeSection";
 import AboutSection from "@/components/AboutSection";
+import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
   return (
@@ -20,8 +21,8 @@ export default function Home() {
         <h2 className="text-4xl">Meus Projetos</h2>
       </section>
 
-      <section id="contato" className="h-screen flex justify-center items-center snap-start">
-        <h2 className="text-4xl">Contato</h2>
+      <section id="contato" className="h-screen flex items-center snap-start">
+        <ContactSection/>
       </section>
     </div>
   );
