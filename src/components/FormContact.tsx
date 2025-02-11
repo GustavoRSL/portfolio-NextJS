@@ -50,7 +50,7 @@ export default function FormContact() {
 
   function onSubmit(data: z.infer<typeof formSchema>) {
     const subject = encodeURIComponent("Formulário de Contato Portfolio");
-    const body = encodeURIComponent(`Nome: ${data.name}\nEmail: ${data.email}\nMensagem: ${data.message}`);
+    const body = encodeURIComponent(`Nome: ${data.name}\nMensagem: ${data.message}`);
     const mailtoLink = `mailto:d7gustavoreissouzalima@gmail.com?subject=${subject}&body=${body}`;
     window.location.href = mailtoLink;
   }
