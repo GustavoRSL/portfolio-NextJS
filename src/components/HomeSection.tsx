@@ -2,10 +2,7 @@
 
 export default function HomeSection() {
   return (
-    <section
-      id="home"
-      className="min-h-screen flex items-center justify-center"
-    >
+    <section id="home" className="h-svh flex items-center justify-center">
       <div className="text-center w-[50rem] mx-7">
         <h1 className="text-5xl font-bold mb-4 text-primary">
           Transformando <span className="text-secondaryColor">ideias</span> em

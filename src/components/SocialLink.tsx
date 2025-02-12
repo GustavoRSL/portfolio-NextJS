@@ -12,10 +12,12 @@ export default function SocialLink({ href, icon, label }: SocialLinkProps) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-paragrahpColor inline-flex w-fit items-center gap-2 transition-all duration-300 hover:text-white hover:font-medium"
+      className="text-primary inline-flex w-fit items-center gap-2 transition-all duration-300 hover:text-primary/90 hover:font-normal"
     >
       {icon}
-      <p className="text-base sm:text-lg md:text-xl">{label}</p>
+      <p className="text-foreground hover:text-foreground/90 text-base sm:text-lg md:text-xl">
+        {label}
+      </p>
     </a>
   );
 }

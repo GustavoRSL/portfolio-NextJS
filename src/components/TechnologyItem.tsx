@@ -1,32 +1,19 @@
-import { DiAngularSimple, DiNodejsSmall, DiReact, DiMongodb } from "react-icons/di";
-import { SiTypescript } from "react-icons/si";
-
 interface TechnologyItemProps {
   name: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  description: string;
 }
 
 const TechnologyItem = (props: TechnologyItemProps) => {
-  const getIcon = (tech: string) => {
-    switch (tech) {
-      case "Angular":
-        return <DiAngularSimple size={32} />;
-      case "Node.JS":
-        return <DiNodejsSmall  size={32} />;
-      case "React":
-        return <DiReact size={32} />;
-      case "MongoDB":
-        return <DiMongodb size={32} />;
-      case "TypeScript":
-        return <SiTypescript className="m-0.5" size={26} />;
-      default:
-        return null;
-    }
-  };
-
   return (
-    <div className="flex items-center gap-2">
-      {getIcon(props.name)}
-      <p className="text-paragrahpColor text-center text-base sm:text-base lg:text-2xl">{props.name}</p>
+    <div className="flex flex-col items-center p-4 bg-card rounded-lg shadow-md">
+      <props.icon className="text-4xl text-primary" />
+      <h3 className="text-xl font-semibold text-card-foreground">
+        {props.name}
+      </h3>
+      <div>
+        <p className="text-muted-foreground text-center">{props.description}</p>
+      </div>
     </div>
   );
 };
