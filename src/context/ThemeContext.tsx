@@ -9,12 +9,11 @@ const ThemeContext = createContext({
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [darkMode, setDarkMode] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
 
+  // Garantindo que o tema seja carregado corretamente no primeiro render
   useEffect(() => {
     const isDark = localStorage.getItem("theme") === "dark";
     setDarkMode(isDark);
-    setIsMounted(true);
     document.documentElement.classList.toggle("dark", isDark);
   }, []);
 
@@ -25,11 +24,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem("theme", newMode ? "dark" : "light");
   };
 
-  if (!isMounted) return null; // Evita renderizar enquanto o tema não é carregado
-
   return (
     <ThemeContext.Provider value={{ darkMode, toggleTheme }}>
-      <div className={darkMode ? "dark" : ""}>{children}</div>
+      {children}
     </ThemeContext.Provider>
   );
 }
